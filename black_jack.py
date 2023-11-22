@@ -33,3 +33,39 @@ while go_on:
     else:
         stay()
         go_on=False
+
+def player_point_counter():
+    score_player=0
+    for i in player_point:
+        if i=='K' or i=='J' or i=='Q':
+            score_player+=10
+        elif i=='A':
+            if score_player<=10:
+                score_player+=11
+            else:
+                score_player+=1
+        else:
+            score_player+=i
+    return score_player
+
+def dealer_point_counter():
+    score_dealer=0
+    for i in dealer_point:
+        if i=='K' or i=='J' or i=='Q':
+            score_dealer+=10
+        elif i=='A':
+            if score_dealer<=10:
+                score_dealer+=11
+            else:
+                score_dealer+=1
+        else:
+            score_dealer+=i    
+    return score_dealer
+x=player_point_counter()
+y=dealer_point_counter()
+# print(f"Player{x}")
+# print(f"Dealer{y}")
+if x>y and x<=21:
+    print(f"You Win with {x} points")
+else:
+    print(f"Dealer Wins with {y} points")
